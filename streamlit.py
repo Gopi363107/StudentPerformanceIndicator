@@ -96,7 +96,7 @@ if submit:
 
     with st.spinner("Predicting via Flask backend..."):
         try:
-            response = requests.post(""https://studentperformanceindicator-production.up.railway.app/predict",", json=payload)
+            response = requests.post("https://studentperformanceindicator-production.up.railway.app/predict", json=payload)
             if response.status_code == 200:
                 result = response.json()
                 st.success("✅ Prediction Successful!")
