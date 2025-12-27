@@ -12,5 +12,6 @@ requests
 streamlit
 gunicorn
 flask-cors
+gunicorn ==23.0.0
 
 #-e .
