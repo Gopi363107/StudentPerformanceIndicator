@@ -94,7 +94,7 @@ if submit:
         "writing_score": writing_score
     }
 
-    with st.spinner("Predicting via Flask backend..."):
+    """with st.spinner("Predicting via Flask backend..."):
         try:
             response = requests.post("https://studentperformanceindicator-production.up.railway.app/predict", json=payload)
             if response.status_code == 200:
@@ -107,7 +107,33 @@ if submit:
             else:
                 st.error(f"❌ Prediction failed: {response.text}")
         except Exception as e:
-            st.error(f"❌ Error: {e}")
+            st.error(f"❌ Error: {e}")"""
+    with st.spinner("Predicting via Flask backend..."):
+        try:
+            response = requests.post(
+                "https://studentperformanceindicator-production.up.railway.app/predict",
+                json=payload,
+                timeout=30
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+
+                if result.get("success"):
+                    st.success("✅ Prediction Successful!")
+                    st.metric(
+                        label="Predicted Math Score",
+                        value=f"{result['predicted_math_score']}"
+                    )
+                else:
+                    st.error(result.get("error"))
+
+            else:
+                st.error(f"❌ API Error: {response.text}")
+
+        except Exception as e:
+            st.error(f"❌ Connection Error: {e}")
+
 
 # --------------------------------------------------
 # Footer
