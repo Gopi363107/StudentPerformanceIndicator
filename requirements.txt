@@ -7,4 +7,10 @@ catboost
 xgboost
 Flask
 
+dill
+requests
+streamlit
+gunicorn
+flask-cors
+
 #-e .
