@@ -2,7 +2,7 @@ pandas
 numpy
 seaborn
 matplotlib
-scikit-learn
+scikit-learn==1.6.1
 catboost
 xgboost
 Flask
@@ -10,8 +10,7 @@ Flask
 dill
 requests
 streamlit
-gunicorn
 flask-cors
-gunicorn ==23.0.0
+gunicorn==23.0.0
 
 #-e .
