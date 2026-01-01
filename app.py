@@ -83,7 +83,9 @@ if submit:
             pipeline = PredictPipeline()
             prediction = pipeline.predict(input_df)
 
-            predicted_score = round(float(prediction[0]), 2)
+            raw_prediction = float(prediction[0])
+            predicted_score = round(min(max(raw_prediction, 0), 100), 2)
+
 
             st.success("✅ Prediction Successful!")
             st.metric("Predicted Math Score", predicted_score)
