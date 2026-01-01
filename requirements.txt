@@ -1,16 +1,6 @@
+streamlit
 pandas
 numpy
-seaborn
-matplotlib
 scikit-learn==1.6.1
-catboost
-xgboost
-Flask
-
 dill
-requests
-streamlit
-flask-cors
-gunicorn==23.0.0
-
-#-e .
+q
